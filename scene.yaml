@@ -15,22 +15,22 @@ global:
     # https://mapzen.com/documentation/overview/#developer-accounts-and-api-keys
     sdk_api_key: '3eqm2_bfTNGZ85ar20fVyA'     # set this value to your Mapzen API key
 
-    black_color:                  [0.718,0.698,0.686]
-    dark_color:                   [0.730,0.712,0.701]
-    mid_color:                    [0.740,0.721,0.710]
-    midlight_color:               [0.750,0.731,0.720]
-    extralight_color:             [0.760,0.741,0.730]
-    light_color:                  [0.770,0.750,0.739]
-    lighter_color:                [0.780,0.760,0.749]
-    lightest_color:               [0.790,0.770,0.758]
-    ultralight_color:             [0.800,0.780,0.768]
-    offwhite_color:               [0.820,0.799,0.787]
-    white_color:                  [0.830,0.809,0.797]
+    black_color:                  [0.761,0.596,0.471]
+    dark_color:                   [0.800,0.646,0.528]
+    mid_color:                    [0.820,0.671,0.558]
+    midlight_color:               [0.850,0.706,0.595]
+    extralight_color:             [0.880,0.745,0.642]
+    light_color:                  [0.910,0.786,0.692]
+    lighter_color:                [0.940,0.833,0.752]
+    lightest_color:               [0.960,0.873,0.806]
+    ultralight_color:             [0.980,0.902,0.843]
+    offwhite_color:               [0.980,0.924,0.882]
+    white_color:                  [0.957,0.945,0.929]
 
     tunnel_color:                 [0.900,0.877,0.864]
 
     roads_text_fill:              [0.600,0.600,0.600]
-    roads_text_stroke:            [0.957,0.969,0.976]
+    roads_text_stroke:            [0.957,0.945,0.929]
 
     text_font_family: 'Orbitron'
 
@@ -190,7 +190,7 @@ fonts:
 
 scene:
     background:
-        color: [0.957,0.969,0.976]
+        color: [0.957,0.945,0.929]
 
 sources:
     # mapzen:
@@ -228,14 +228,14 @@ layers:
         draw:
             polygons:
                 order: global.feature_order
-                color: [0.957,0.969,0.976]
+                color: [0.957,0.945,0.929]
 
     water:
         data: { source: mapzen, layer: water }
         draw:
             polygons:
                 order: global.feature_order
-                color: [0.596,0.788,0.898]
+                color: [0.537,0.847,0.961]
 
         lakes:
             filter:
@@ -261,13 +261,13 @@ layers:
                     - { $zoom: { min: 15 } }
             draw:
                 polygons:
-                    color: [0.596,0.788,0.898]
+                    color: [0.537,0.847,0.961]
 
         other-water-areas:
             filter: { not: { kind: [ocean, lake, water, reservoir] }, $zoom: { min: 11 }, area: { min: 100 } }
             draw:
                 polygons:
-                    color: [0.596,0.788,0.898]
+                    color: [0.537,0.847,0.961]
 
     roads:
         data: { source: mapzen, layer: roads }
@@ -851,7 +851,7 @@ layers:
                     - protect_class: ['2','3','5']
             draw:
                 polygons:
-                    color: [0.757,0.941,0.714]
+                    color: [0.671,0.910,0.518]
                     visible: true
             us_national_park:
                 # yosemite national park, death valley national park, grand canyon national park
@@ -861,7 +861,7 @@ layers:
                         - protect_class: ['2','3','5']
                 draw:
                     polygons:
-                        color: [0.757,0.941,0.714]
+                        color: [0.671,0.910,0.518]
                         visible: true
 
         conservation:
@@ -883,14 +883,14 @@ layers:
                     - operator: ['United States Forest Service']
             draw:
                 polygons:
-                    color: [0.686,0.878,0.643]
+                    color: [0.631,0.859,0.518]
                     visible: true
 
         forest-landcover:
             filter: { kind: [forest, natural_forest, wood, natural_wood, natural_park], $zoom: { min: 10 }, not: { operator: "United States Forest Service" } }
             draw:
                 polygons:
-                    color: [0.686,0.878,0.643]
+                    color: [0.631,0.859,0.518]
                     visible: true
 
         parks-and-national-forests-not-national-park:
@@ -904,7 +904,7 @@ layers:
             # default for national forests and more?
             draw:
                 polygons:
-                    color: [0.780,0.929,0.659]
+                    color: [0.757,0.878,0.494]
                     visible: true
             national_park:
                 #filter: function() { return feature.name && (feature.name.indexOf('National Park') > -1); }
@@ -914,7 +914,7 @@ layers:
                         - not: [ protect_class: ['2','3','5','6'], operator: [ "United States National Park Service"] ]
                 draw:
                     polygons:
-                        color: [0.780,0.929,0.659]
+                        color: [0.757,0.878,0.494]
                         visible: true
 
         university:
@@ -922,7 +922,15 @@ layers:
                 kind: [university, college]
             draw:
                 polygons:
-                    color: [0.970,0.950,0.912]
+                    color: [1.000,0.827,0.600]
+                    visible: true
+
+        cemetery:
+            filter:
+                kind: cemetery
+            draw:
+                polygons:
+                    color: [0.855,0.906,0.753]
                     visible: true
 
         golf_course:
@@ -930,7 +938,7 @@ layers:
                 kind: golf_course
             draw:
                 polygons:
-                    color: [0.710,0.910,0.714]
+                    color: [0.706,0.878,0.439]
                     visible: true
 
         hospital:
@@ -938,15 +946,22 @@ layers:
                 kind: hospital
             draw:
                 polygons:
-                    color: [1.000,0.961,0.976]
+                    color: [0.933,0.835,0.961]
                     visible: true
 
-        stadium:
+        zoo:
             filter:
-                kind: stadium
+                kind: [zoo, wildlife_park]
             draw:
                 polygons:
-                    color: [0.890,0.816,0.729]
+                    color: [0.886,0.941,0.667]
+                    visible: true
+
+        man-made:
+            filter: { kind: [pier,wastewater_plant,works,bridge,tower,breakwater,water_works,groyne,dike,cutline] }
+            draw:
+                polygons:
+                    color: [0.925,0.922,0.882]
                     visible: true
 
         beach:
@@ -954,7 +969,35 @@ layers:
                 kind: beach
             draw:
                 polygons:
-                    color: [0.988,0.980,0.871]
+                    color: [1.000,0.918,0.529]
+                    visible: true
+
+        garden:
+            filter:
+                kind: garden
+            draw:
+                polygons:
+                    color: [0.553,0.839,0.608]
+                    visible: true
+
+        pitch:
+            filter: { kind: pitch }
+            draw:
+                polygons:
+                    color: global.lightest_color
+                    visible: true
+                outline:
+                    style: lines
+                    order: global.feature_order
+                    color: [0.859,0.776,0.686]
+                    width: [[14, 0px], [15, 1px], [18, 2px]]
+
+        school:
+            filter:
+                kind: school
+            draw:
+                polygons:
+                    color: [0.984,0.969,0.796]
                     visible: true
 
         runway:
@@ -964,52 +1007,6 @@ layers:
                 polygons:
                     visible: true
                     color: global.mid_color
-
-    buildings:
-        data: { source: mapzen, layer: buildings }
-        filter:
-            not: { location: underground }
-        draw:
-            polygons:
-                visible: false
-                order: 438
-                color: [0.929,0.953,0.961]
-
-        footprints:
-            filter:
-                any:
-                    - { $zoom: [13], scale_rank: [1] }
-                    - { $zoom: [14], scale_rank: [1,2] }
-                    - { $zoom: [15], height: { min: 100 } }
-                    - { $zoom: [15], area: { min: 5000 } }
-                    - { $zoom: [15], volume: { min: 100000 } }
-                    - { $zoom: [16], area: { min: 100 } }
-                    - { $zoom: [16], volume: { min: 50000 } }
-                    - { $zoom: { min: 17 }, area: true }
-            draw:
-                polygons:
-                    visible: true
-
-        in_university:
-            filter: { landuse_kind: [university,school] }
-            draw:
-                polygons:
-                    visible: true
-                    color: [0.961,0.933,0.769]
-
-        in_hospital:
-            filter: { landuse_kind: hospital }
-            draw:
-                polygons:
-                    visible: true
-                    color: [0.988,0.882,0.922]
-
-        in_stadium:
-            filter: { landuse_kind: stadium }
-            draw:
-                polygons:
-                    visible: true
-                    color: [0.949,0.792,0.694]
 
     boundaries:
         data: { source: mapzen, layer: boundaries }
@@ -1026,10 +1023,10 @@ layers:
                 country-outerline:
                     style: lines
                     order: function() { return (feature.sort_rank -1); }
-                    color: [0.839,0.804,0.757]
+                    color: [0.725,0.765,0.780]
                     width: [[0, 0px], [4, 2px], [8, 6px], [14, 8px], [17, 16m]]
                 lines:
-                    color: [0.839,0.804,0.757]
+                    color: [0.725,0.765,0.780]
                     width: [[0, 0px], [5, 0px], [6, 1px], [14, 15px]]
             water:
                 filter: { maritime_boundary: true }
@@ -1065,7 +1062,7 @@ layers:
                 lines:
                     dash: [1.25, 1.25]
                     order: global.feature_order
-                    color: [0.839,0.804,0.757]
+                    color: [0.725,0.765,0.780]
                     width: [[1,0.2px],[9,1.5px],[17,10m]]
             disputed:
                 filter: { kind: [disputed, line_of_control] }
@@ -1073,7 +1070,7 @@ layers:
                     lines:
                         dash: [2.0, 1.0]
                         order: global.feature_order
-                        color: [0.839,0.804,0.757]
+                        color: [0.725,0.765,0.780]
                         width: [[1, 1px], [9, 4px], [17,14m]]
 
         region:
@@ -1083,7 +1080,7 @@ layers:
                     - kind_detail: [3,4]
             draw:
                 lines:
-                    color: [0.851,0.788,0.706]
+                    color: [0.725,0.765,0.780]
                     # width: [[0, 0.5px], [9, 2px], [14, 4px], [16, 6.5px], [17, 16m]]
                     width: [[0, 0.5px], [14, 3px], [16, 7px], [17, 17m]]
 
