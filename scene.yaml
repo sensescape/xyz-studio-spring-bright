@@ -838,12 +838,12 @@ layers:
             filter: { kind: pitch }
             draw:
                 polygons:
-                    color: global.lightest_color
+                    color: [0.859,0.776,0.686]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.859,0.776,0.686]
+                    color: [0.400,0.608,0.831]
                     width: [[14, 0px], [15, 1px], [18, 2px]]
 
         school:
@@ -1035,7 +1035,7 @@ layers:
                     text_source: global.ux_language_text_source
                     font:
                         fill: [0.650,0.650,0.650]
-                        stroke: { color: [0.957,0.969,0.976], width: 4px }
+                        stroke: { color: [0.957,0.945,0.929], width: 4px }
             country-z2-3:
                 filter:
                     $zoom: [2,3]
@@ -1143,7 +1143,7 @@ layers:
                         size: 11px
                         weight: normal
                         fill: [0.700,0.700,0.700]
-                        stroke: { color: [0.957,0.969,0.976], width: 4px }
+                        stroke: { color: [0.957,0.945,0.929], width: 4px }
             region-z4:
                 filter:
                     $zoom: [4]
@@ -1222,7 +1222,7 @@ layers:
                     buffer: 42px
                     font:
                         size: [[5,9px],[8,10px],[12,11px]]
-                        stroke: { color: [0.957,0.969,0.976], width: 5px }
+                        stroke: { color: [0.957,0.945,0.929], width: 5px }
 
             # _text_early:
             #     filter: { $zoom: { max: 11 } }
@@ -1388,7 +1388,7 @@ layers:
                         size: [[11, 9px], [12, 10px], [13, 12px], [14, 16px], [16, 24px]]
                         weight: normal
                         transform: uppercase
-                        stroke: { color: [0.957,0.969,0.976], width: [[12, 4px], [13, 6px], [15, 8px]] }
+                        stroke: { color: [0.957,0.945,0.929], width: [[12, 4px], [13, 6px], [15, 8px]] }
 
             z13-up:
                 filter:
